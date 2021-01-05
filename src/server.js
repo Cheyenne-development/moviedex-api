@@ -33,15 +33,16 @@ app.get('/movie', function handleGetMovie(req, res)  {
       movie.genre.toLowerCase().includes(genre.toLowerCase())
     );
   } 
- if(country.toLowerCase() === "us" || country.toLowerCase() === "u.s." || country.toLowerCase() === "usa" || country.toLowerCase() === "america"){
-   country = "United States"
- }
-if(country.toLowerCase() === "uk" || country.toLowerCase() === "gb" || country.toLowerCase() === "england"
-|| country.toLowerCase() === "scotland" || country.toLowerCase() === "wales" || country.toLowerCase() === "united kingdom"){
-  country = "Great Britain"
-}
+
 
   if(country){
+    if(country.toLowerCase() === "us" || country.toLowerCase() === "u.s." || country.toLowerCase() === "usa" || country.toLowerCase() === "america"){
+      country = "United States"
+    }
+   if(country.toLowerCase() === "uk" || country.toLowerCase() === "gb" || country.toLowerCase() === "england"
+   || country.toLowerCase() === "scotland" || country.toLowerCase() === "wales" || country.toLowerCase() === "united kingdom"){
+     country = "Great Britain"
+   }
     movies = movies.filter(movie =>
       movie.country.toLowerCase().includes(country.toLowerCase())
     );
