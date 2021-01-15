@@ -1,5 +1,5 @@
 const express = require('express');
-const MOVIE = require('../movies-data-small.json');
+const MOVIE = require('../movies-data.json');
 
 const movieRouter = express.Router();
 
