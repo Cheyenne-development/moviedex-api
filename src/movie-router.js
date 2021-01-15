@@ -6,7 +6,7 @@ const movieRouter = express.Router();
 movieRouter
   .route('/movie')
   .get((req, res) =>  {
-    let { genre, country, avg_vote, title } = req.query;
+    let { genre, country, rating, title } = req.query;
     let movies = MOVIE;
     
     if(genre){
@@ -31,9 +31,9 @@ movieRouter
      
   
     
-    if(avg_vote){
+    if(rating){
       movies = movies.filter(function (movie) { 
-        return movie.avg_vote >= Number(avg_vote);
+        return movie.avg_vote >= Number(rating);
       });
     }
 
