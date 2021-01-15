@@ -6,7 +6,7 @@ const movieRouter = express.Router();
 movieRouter
   .route('/movie')
   .get((req, res) =>  {
-    let { genre, country, avg_vote, film } = req.query;
+    let { genre, country, avg_vote, title } = req.query;
     let movies = MOVIE;
     
     if(genre){
@@ -37,17 +37,12 @@ movieRouter
       });
     }
 
-    if(film) {
-      /*for(let i = 0; i < movies.length; i++){
-        if( typeof movies[i].film_title != 'string'){
-          console.log(movies[i])
-        }
-      }*/
-    
+    if(title) {
+          
        movies = movies.filter(movie => 
         typeof movie.film_title == 'number' ?
-          movie.film_title - film === 0 :
-          movie.film_title.toLowerCase().includes(film.toLowerCase()))
+          movie.film_title - title === 0 :
+          movie.film_title.toLowerCase().includes(title.toLowerCase()))
         }
     
   
